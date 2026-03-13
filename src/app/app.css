@@ -1,0 +1,498 @@
+/* ==========================================================================
+   0. DESIGN SYSTEM (Variables & Global)
+   ========================================================================== */
+:root {
+  --bg-warm: #FCFCFD;
+  --text-black: #111111;
+  --text-dark: #222222;
+  --text-gray: #737373;
+  --text-light-gray: #A1A1A6;
+  --border-gray: #E5E5E7;
+  --apple-blue: #0071E3;
+  --apple-blue-hover: #0077ED;
+  --smooth-friction: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   REVEAL LOGIC (Intersection Observer Version)
+   ========================================================================== */
+@keyframes reveal-top {
+  from {
+    opacity: 0;
+    transform: translateY(80px); /* Longer travel distance */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* 1. Default State: Hidden, shifted down */
+.job-item, .project-item-card, .skill-category-card, .edu-item {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. Revealed State: Added by Intersection Observer in the TS file */
+.job-item.visible, .project-item-card.visible,
+.skill-category-card.visible, .edu-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* ==========================================================================
+   1. NAVIGATION (Glassmorphism)
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(252, 252, 253, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--text-black);
+  text-decoration: none;
+  letter-spacing: -0.04em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-black);
+}
+
+/* ==========================================================================
+   2. HERO SECTION (Initial Impact)
+   ========================================================================== */
+.apple-experience {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.greeting {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-gray);
+  margin-bottom: 1rem;
+}
+
+.name-display {
+  font-size: 5.5rem;
+  font-weight: 800;
+  color: var(--text-black);
+  letter-spacing: -0.04em;
+  margin: 0 0 1.5rem 0;
+  line-height: 1;
+}
+
+.role-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.01em;
+}
+
+.hero-summary {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+.reveal-on-load {
+  animation: reveal-top 4s var(--smooth-friction) forwards;
+}
+
+/* ==========================================================================
+   3. EXPERIENCE (Editorial Style + Soft Gray Background)
+   ========================================================================== */
+.experience-outer-wrapper {
+  width: 100%;
+  background-color: #F7F7F7;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.03); */
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.03); */
+}
+
+.experience-container {
+  max-width: 50vw;
+  margin: 0 auto;
+  padding: 120px 40px;
+}
+
+.section-tag {
+  color: var(--apple-blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.section-main-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-black);
+  letter-spacing: -0.04em;
+  margin: 0 0 80px 0;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.job-item {
+  view-timeline-name: --job-reveal;
+  view-timeline-axis: block;
+  animation-name: reveal;
+  animation-fill-mode: both;
+  animation-range: entry 10% entry 30%;
+  animation-timing-function: var(--smooth-friction);
+}
+
+.job-dates {
+  font-size: 0.95rem;
+  color: #86868B; /* Slightly darker for contrast against gray */
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.job-role-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-black);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.job-company-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--apple-blue);
+  margin-bottom: 24px;
+}
+
+/* Vertical line needs to be slightly darker to pop on #F7F7F7 */
+.bullet-container {
+  border-left: 1.5px solid #D2D2D7; 
+  padding-left: 24px;
+  margin-left: 2px;
+}
+
+.job-description {
+  font-size: 1.1rem;
+  color: #424245; /* Darker gray for better legibility on light gray bg */
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 90%;
+}
+
+.projects-outer-wrapper {
+  width: 100%;
+  background-color: #F7F7F7;
+}
+
+.projects-section-container {
+  max-width: 50vw;
+  margin: 0 auto;
+  padding: 120px 40px;
+}
+
+.projects-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-item-card {
+  /* background-color: #F2F2F7; */
+  background-color: #FFF;
+  border-radius: 28px;
+  padding: 48px;
+  transition: all 0.5s var(--smooth-friction);
+}
+
+.project-item-card:hover {
+  transform: scale(1.015);
+  background-color: #EBEBEF;
+}
+
+.project-tech-stack {
+  color: var(--apple-blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 12px 0;
+}
+
+.project-display-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--text-black);
+  margin: 0 0 20px 0;
+  letter-spacing: -0.04em;
+}
+
+.project-bullets-container {
+  /* border-left: 1.5px solid #D2D2D7; */
+  /* padding-left: 10px; */
+  margin-left: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-summary-text {
+  font-size: 1.05rem;
+  color: #6E6E73;
+  line-height: 1.6;
+  max-width: 90%;
+  margin: 0;
+  font-weight: 400;
+  text-align: justify;
+}
+
+/* ==========================================================================
+   5. SKILLS (Compact Categorized Grid)
+   ========================================================================== */
+.skills-outer-wrapper {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.skills-container {
+  max-width: 50vw; /* Limits the spread to keep it compact */
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.skills-card-grid {
+  display: grid;
+  /* Forces a 3-column layout on desktop to match the image */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px; /* Tighter gap */
+}
+
+.skill-category-card {
+  background: #FFFFFF;
+  border-radius: 20px; /* Slightly tighter radius */
+  padding: 24px 30px; /* Reduced padding for a compact look */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* Minimal shadow */
+  
+  view-timeline-name: --skill-card-reveal;
+  view-timeline-axis: block;
+  animation-name: reveal;
+  animation-fill-mode: both;
+  animation-range: entry 10% entry 30%;
+  animation-timing-function: var(--smooth-friction);
+}
+
+.skill-category-title {
+  font-size: 0.95rem; /* Smaller, more professional title */
+  font-weight: 700;
+  color: var(--text-black);
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.skill-pills-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Tighter spacing between pills */
+}
+
+.skill-item-pill {
+  background-color: #F2F2F7; /* Apple System Gray */
+  color: #86868B; /* Lighter text color to match image */
+  padding: 6px 14px; /* Reduced padding */
+  border-radius: 30px;
+  font-size: 0.85rem; /* Noticeably smaller font */
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.skill-item-pill:hover {
+  background-color: #E5E5EA; /* Subtle gray hover instead of blue to stay minimalist */
+  color: var(--text-black);
+}
+
+/* ==========================================================================
+   6. EDUCATION (Minimalist Scholarly Style)
+   ========================================================================== */
+.education-container {
+  /* min-height: 100vh; */
+  max-width: 50vw;
+  margin: 0 auto;
+  padding: 120px 40px;
+  background-color: var(--bg-warm); /* Pure white to contrast with Experience */
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.edu-item {
+  view-timeline-name: --edu-reveal;
+  view-timeline-axis: block;
+  animation-name: reveal;
+  animation-fill-mode: both;
+  animation-range: entry 10% entry 30%;
+  animation-timing-function: var(--smooth-friction);
+}
+
+.edu-dates {
+  font-size: 0.95rem;
+  color: var(--text-light-gray);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.edu-degree-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-black);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.edu-school-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--apple-blue);
+  margin-bottom: 16px;
+}
+
+.edu-details {
+  font-size: 1.05rem;
+  color: #86868B;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* ==========================================================================
+   8. CONTACT (Final Connection)
+   ========================================================================== */
+.contact-outer-wrapper {
+  width: 100%;
+  background-color: #F7F7F7;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.03); */
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.03); */
+}
+
+.contact-section-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 150px 40px;
+  text-align: center; /* Center everything in this section */
+}
+
+.contact-summary {
+  font-size: 1.25rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+.contact-buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s var(--smooth-friction);
+}
+
+.btn-primary {
+  background-color: var(--apple-blue);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--apple-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 113, 227, 0.2);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-black);
+  border: 1px solid var(--border-gray);
+}
+
+.btn-secondary:hover {
+  background-color: #F5F5F7;
+  transform: translateY(-2px);
+  border-color: #D2D2D7;
+}
+
+/* Ensure icons scale well */
+.contact-btn svg {
+  flex-shrink: 0;
+}

@@ -1,0 +1,116 @@
+{
+  "education": [
+    {
+      "showElement": true,
+      "degree": "Master of Science in Data Science",
+      "school": "University of Wisconsin-Madison",
+      "dates": "Sep 2024 - May 2026",
+      "gpa": "3.83/4.00",
+      "details": "25% merit-based scholarship for academic excellence",
+      "courses": "Statistics, AI, Big Data Systems, Advanced NLP, Optimization, and HCI."
+    },
+    {
+      "showElement": true,
+      "degree": "Bachelor of Technology in Computer Science and Engineering",
+      "school": "Manipal University Jaipur",
+      "dates": "Jul 2019 - May 2023",
+      "gpa": "9.15/10.00",
+      "details": "Dean's List - Excellence in Academics",
+      "courses": ""
+    }
+  ],
+  "skillCategories": [
+    {
+      "category": "Languages",
+      "showElement": true,
+      "items": ["Python", "R", "JavaScript", "TypeScript", "C#"]
+    },
+    {
+      "category": "ML & Frameworks",
+      "showElement": true,
+      "items": ["TensorFlow", "PyTorch", "Scikit-learn", "Spark MLlib", "Transformers", "XGBoost", "spaCy", "NLTK"]
+    },
+    {
+      "category": "Data & Visualization",
+      "showElement": true,
+      "items": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Plotly", "ggplot", "Tableau", "Power BI"]
+    },
+    {
+      "category": "Cloud & Big Data",
+      "showElement": true,
+      "items": ["AWS SageMaker", "AWS S3", "AWS Glue", "AWS Redshift", "GCP Vertex AI", "BigQuery", "Hadoop", "Kafka"]
+    },
+    {
+      "category": "Databases",
+      "showElement": true,
+      "items": ["MySQL", "PostgreSQL", "MongoDB", "Snowflake"]
+    }
+  ],
+  "experience": [
+    {
+      "showElement": true,
+      "role": "Machine Learning Research Intern",
+      "company": "University of Wisconsin-Madison",
+      "dates": "Jan 2026 - May 2026",
+      "bullets": [
+        "Developing an end-to-end physics-informed ML solution to accurately predict stellar ages for both cluster and field stars, integrating astronomical constraints to ensure physically consistent model outputs.",
+        "Engineering a robust ETL pipeline using PySpark to aggregate a multi-modal dataset of 8,000+ stars, cross-matching high-dimensional catalogs for rotation periods, mass, and chemical abundance.",
+        "Designing a Mixture-of-Experts ensemble to unify gyrochronology and chemical dating methods; currently integrating Physics-Informed Neural Networks with normalizing flows to enforce astronomical consistency."
+      ]
+    },
+    {
+      "showElement": true,
+      "role": "Software Engineer 1 - Machine Learning",
+      "company": "Dell Technologies",
+      "dates": "Jan 2023 - May 2024",
+      "bullets": [
+        "Engineered high-throughput pipelines via Apache NiFi and AWS Glue to process thousands of daily transactions, enforcing schema conformance and automated anomaly flagging to reduce downstream data errors by 30%.",
+        "Optimized 8+ .NET REST APIs and SQL stored procedures for high-concurrency, reducing dashboard P99 latency by 25% for 200+ global stakeholders.",
+        "Applied SMOTE and targeted feature engineering to address class imbalance in fraud payment datasets, improving the AUPRC and increasing fraud capture rate by 15% while maintaining false positive rate within operational thresholds."
+      ]
+    }
+  ],
+  "contact": {
+    "email": "26amitdethe@gmail.com",
+    "phone": "(608) 658-7948",
+    "location": "Madison, WI",
+    "linkedin": "LinkedIn",
+    "summary": "I'm always open to discussing new opportunities, research collaborations, or interesting problems."
+  },
+  "projects": [
+    {
+      "showElement": true,
+      "title": "EEG-Based Speech Reconstruction for Motor-Impaired Patients",
+      "dates": "Fall 2025",
+      "tools": "PyTorch, Conformer-CTC",
+      "bullets": [
+        "Developed a deep learning pipeline to decode EEG signals into coherent text for individuals with severe motor impairments like ALS, achieving a 16% Word Error Rate (WER).",
+        "Engineered an end-to-end Conformer-CTC architecture to replace traditional multi-step LLM dependencies, significantly reducing model complexity and inference latency.",
+        "Optimized phonetic decoding stability by minimizing phoneme drift, resulting in a Character Error Rate (CER) that outperformed the competition's baseline."
+      ]
+    },
+    {
+      "showElement": true,
+      "title": "Exoplanet Detection using Neural Networks",
+      "dates": "Spring 2025",
+      "tools": "TensorFlow, PyTorch, SNN, Transformer, SMOTE",
+      "bullets": [
+        "Addressed a severe class imbalance in Kepler data (0.7% positive) to improve rare event detection in astronomical time-series.",
+        "Implemented SMOTE and feature modeling to handle data skew, followed by a Spiking Neural Network (SNN) and Transformer architecture to capture temporal transit patterns.",
+        "Optimized model performance via Focal Loss to penalize majority-class bias, achieving 80% precision and a 70% F1-score, representing a 6x improvement in F1 over a Logistic Regression baseline.",
+        "Reduced manual review requirements for astronomical surveys by automating the identification of planetary candidates."
+      ]
+    },
+    {
+      "showElement": true,
+      "title": "Detection of Pleural Effusion using Deep Learning",
+      "dates": "Fall 2024",
+      "tools": "TensorFlow, Transfer Learning, AWS SageMaker",
+      "bullets": [
+        "Addressed need for faster diagnosis of lung fluid in chest X-rays, reducing radiologist workload.",
+        "Applied transfer learning (InceptionV3) on 224k+ CheXpert images and fine-tuned for medical screening.",
+        "Achieved 93% accuracy (AUC 0.95) with a 5% drop in false negatives, supporting reliable large-scale quality screening."
+      ]
+    }
+  ]
+}

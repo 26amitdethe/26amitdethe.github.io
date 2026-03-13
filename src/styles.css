@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+:root {
+  --bg-warm: #FCFCFD;
+  --text-black: #111111;
+  --text-dark: #222222;
+  --text-gray: #737373;
+  /* The official Apple Digital Blue */
+  --apple-blue: #0071E3; 
+  --apple-blue-hover: #0077ED;
+  --smooth-friction: cubic-bezier(0.16, 1, 0.3, 1); 
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif !important;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-warm);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; 
+}
+
+app-root {
+  display: block;
+  scroll-behavior: smooth;
+}
+
+html, body, app-root {
+  scroll-behavior: smooth;
+}
