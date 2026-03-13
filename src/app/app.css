@@ -19,14 +19,14 @@
 @keyframes reveal-top {
   from {
     opacity: 0;
-    transform: translateY(80px); /* Longer travel distance */
+    transform: translateY(80px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-/* 1. Default State: Hidden, shifted down */
+
 .job-item, .project-item-card, .skill-category-card, .edu-item {
   opacity: 0;
   transform: translateY(80px);
@@ -34,14 +34,11 @@
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 2. Revealed State: Added by Intersection Observer in the TS file */
 .job-item.visible, .project-item-card.visible,
 .skill-category-card.visible, .edu-item.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-
 
 /* ==========================================================================
    1. NAVIGATION (Glassmorphism)
@@ -155,17 +152,15 @@
 }
 
 /* ==========================================================================
-   3. EXPERIENCE (Editorial Style + Soft Gray Background)
+   3. EXPERIENCE
    ========================================================================== */
 .experience-outer-wrapper {
   width: 100%;
   background-color: #F7F7F7;
-  /* border-top: 1px solid rgba(0, 0, 0, 0.03); */
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.03); */
 }
 
 .experience-container {
-  max-width: 50vw;
+  max-width: 900px;
   margin: 0 auto;
   padding: 120px 40px;
 }
@@ -193,18 +188,9 @@
   gap: 80px;
 }
 
-.job-item {
-  view-timeline-name: --job-reveal;
-  view-timeline-axis: block;
-  animation-name: reveal;
-  animation-fill-mode: both;
-  animation-range: entry 10% entry 30%;
-  animation-timing-function: var(--smooth-friction);
-}
-
 .job-dates {
   font-size: 0.95rem;
-  color: #86868B; /* Slightly darker for contrast against gray */
+  color: #86868B;
   font-weight: 500;
   margin-bottom: 8px;
 }
@@ -224,28 +210,31 @@
   margin-bottom: 24px;
 }
 
-/* Vertical line needs to be slightly darker to pop on #F7F7F7 */
 .bullet-container {
-  border-left: 1.5px solid #D2D2D7; 
+  border-left: 1.5px solid #D2D2D7;
   padding-left: 24px;
   margin-left: 2px;
 }
 
 .job-description {
   font-size: 1.1rem;
-  color: #424245; /* Darker gray for better legibility on light gray bg */
+  color: #424245;
   line-height: 1.6;
   margin-bottom: 16px;
   max-width: 90%;
+  text-align: justify;
 }
 
+/* ==========================================================================
+   4. PROJECTS
+   ========================================================================== */
 .projects-outer-wrapper {
   width: 100%;
   background-color: #F7F7F7;
 }
 
 .projects-section-container {
-  max-width: 50vw;
+  max-width: 900px;
   margin: 0 auto;
   padding: 120px 40px;
 }
@@ -257,7 +246,6 @@
 }
 
 .project-item-card {
-  /* background-color: #F2F2F7; */
   background-color: #FFF;
   border-radius: 28px;
   padding: 48px;
@@ -287,8 +275,6 @@
 }
 
 .project-bullets-container {
-  /* border-left: 1.5px solid #D2D2D7; */
-  /* padding-left: 10px; */
   margin-left: 2px;
   display: flex;
   flex-direction: column;
@@ -306,7 +292,7 @@
 }
 
 /* ==========================================================================
-   5. SKILLS (Compact Categorized Grid)
+   5. SKILLS
    ========================================================================== */
 .skills-outer-wrapper {
   width: 100%;
@@ -314,34 +300,26 @@
 }
 
 .skills-container {
-  max-width: 50vw; /* Limits the spread to keep it compact */
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
 .skills-card-grid {
   display: grid;
-  /* Forces a 3-column layout on desktop to match the image */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px; /* Tighter gap */
+  gap: 16px;
 }
 
 .skill-category-card {
   background: #FFFFFF;
-  border-radius: 20px; /* Slightly tighter radius */
-  padding: 24px 30px; /* Reduced padding for a compact look */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* Minimal shadow */
-  
-  view-timeline-name: --skill-card-reveal;
-  view-timeline-axis: block;
-  animation-name: reveal;
-  animation-fill-mode: both;
-  animation-range: entry 10% entry 30%;
-  animation-timing-function: var(--smooth-friction);
+  border-radius: 20px;
+  padding: 24px 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .skill-category-title {
-  font-size: 0.95rem; /* Smaller, more professional title */
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-black);
   margin-bottom: 20px;
@@ -351,48 +329,38 @@
 .skill-pills-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px; /* Tighter spacing between pills */
+  gap: 8px;
 }
 
 .skill-item-pill {
-  background-color: #F2F2F7; /* Apple System Gray */
-  color: #86868B; /* Lighter text color to match image */
-  padding: 6px 14px; /* Reduced padding */
+  background-color: #F2F2F7;
+  color: #86868B;
+  padding: 6px 14px;
   border-radius: 30px;
-  font-size: 0.85rem; /* Noticeably smaller font */
+  font-size: 0.85rem;
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .skill-item-pill:hover {
-  background-color: #E5E5EA; /* Subtle gray hover instead of blue to stay minimalist */
+  background-color: #E5E5EA;
   color: var(--text-black);
 }
 
 /* ==========================================================================
-   6. EDUCATION (Minimalist Scholarly Style)
+   6. EDUCATION
    ========================================================================== */
 .education-container {
-  /* min-height: 100vh; */
-  max-width: 50vw;
+  max-width: 900px;
   margin: 0 auto;
   padding: 120px 40px;
-  background-color: var(--bg-warm); /* Pure white to contrast with Experience */
+  background-color: var(--bg-warm);
 }
 
 .education-list {
   display: flex;
   flex-direction: column;
   gap: 60px;
-}
-
-.edu-item {
-  view-timeline-name: --edu-reveal;
-  view-timeline-axis: block;
-  animation-name: reveal;
-  animation-fill-mode: both;
-  animation-range: entry 10% entry 30%;
-  animation-timing-function: var(--smooth-friction);
 }
 
 .edu-dates {
@@ -425,20 +393,18 @@
 }
 
 /* ==========================================================================
-   8. CONTACT (Final Connection)
+   7. CONTACT
    ========================================================================== */
 .contact-outer-wrapper {
   width: 100%;
   background-color: #F7F7F7;
-  /* border-top: 1px solid rgba(0, 0, 0, 0.03); */
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.03); */
 }
 
 .contact-section-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 150px 40px;
-  text-align: center; /* Center everything in this section */
+  text-align: center;
 }
 
 .contact-summary {
@@ -492,7 +458,161 @@
   border-color: #D2D2D7;
 }
 
-/* Ensure icons scale well */
 .contact-btn svg {
   flex-shrink: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE — TABLET (768px and below)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .name-display {
+    font-size: 3.5rem;
+  }
+
+  .role-title {
+    font-size: 1.4rem;
+  }
+
+  .hero-summary {
+    font-size: 1.05rem;
+  }
+
+  .section-main-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+
+  .experience-container,
+  .projects-section-container,
+  .skills-container,
+  .education-container,
+  .contact-section-container {
+    padding: 80px 24px;
+  }
+
+  .job-role-title,
+  .edu-degree-title {
+    font-size: 1.6rem;
+  }
+
+  .project-item-card {
+    padding: 32px;
+    border-radius: 20px;
+  }
+
+  .project-display-title {
+    font-size: 1.5rem;
+  }
+
+  .project-item-card:hover {
+    transform: none;
+  }
+
+  .skills-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .contact-section-container {
+    padding: 80px 24px;
+  }
+
+  .contact-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — MOBILE (480px and below)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-section {
+    height: auto;
+    min-height: 80vh;
+    padding: 100px 20px 60px;
+  }
+
+  .name-display {
+    font-size: 2.8rem;
+  }
+
+  .role-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-summary {
+    font-size: 1rem;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+  }
+
+  .section-main-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .experience-container,
+  .projects-section-container,
+  .skills-container,
+  .education-container,
+  .contact-section-container {
+    padding: 60px 16px;
+  }
+
+  .experience-list {
+    gap: 50px;
+  }
+
+  .job-role-title,
+  .edu-degree-title {
+    font-size: 1.4rem;
+  }
+
+  .job-description,
+  .project-summary-text {
+    font-size: 0.95rem;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .bullet-container {
+    padding-left: 16px;
+  }
+
+  .project-item-card {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .project-display-title {
+    font-size: 1.3rem;
+  }
+
+  .skills-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-buttons-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .edu-details {
+    font-size: 0.95rem;
+  }
 }
