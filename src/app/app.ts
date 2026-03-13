@@ -52,7 +52,7 @@ export class App implements OnInit, OnDestroy {
     );
 
     const targets = document.querySelectorAll(
-      '.job-item, .project-item-card, .skill-category-card, .edu-item'
+      '.job-item, .project-item-card, .skill-category-card, .edu-item, .contact-section-container'
     );
     targets.forEach((el) => this.observer.observe(el));
   }

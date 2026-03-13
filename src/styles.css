@@ -40,3 +40,79 @@ app-root {
 html, body, app-root {
   scroll-behavior: smooth;
 }
+
+
+.stacking-cards {
+  position: relative;
+}
+
+.stack-card {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Only hero stays sticky — it sits behind everything */
+.stack-card#home {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  min-height: 100vh;
+  background-color: #FCFCFD;
+}
+
+.stack-card#experience {
+  position: relative;
+  z-index: 2;
+  background-color: #F7F7F7;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.stack-card#education {
+  position: relative;
+  z-index: 3;
+  background-color: #FCFCFD;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.08);
+  margin-top: -24px;
+}
+
+.stack-card#projects {
+  position: relative;
+  z-index: 4;
+  background-color: #F7F7F7;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.08);
+  margin-top: -24px;
+}
+
+.stack-card#skills {
+  position: relative;
+  z-index: 5;
+  background-color: #FCFCFD;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.08);
+  margin-top: -24px;
+}
+
+.stack-card#contact {
+  position: relative;
+  z-index: 6;
+  background-color: #F7F7F7;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.08);
+  margin-top: -24px;
+}
+
+@media (max-width: 768px) {
+  .stack-card#home {
+    position: relative;
+    min-height: auto;
+  }
+  
+  .stack-card {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+  }
+}

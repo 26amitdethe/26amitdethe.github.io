@@ -27,15 +27,15 @@
   }
 }
 
-.job-item, .project-item-card, .skill-category-card, .edu-item {
+.job-item, .project-item-card, .skill-category-card, .edu-item, .contact-section-container {
   opacity: 0;
   transform: translateY(80px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 3.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 3.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .job-item.visible, .project-item-card.visible,
-.skill-category-card.visible, .edu-item.visible {
+.skill-category-card.visible, .edu-item.visible, .contact-section-container.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -154,10 +154,10 @@
 /* ==========================================================================
    3. EXPERIENCE
    ========================================================================== */
-.experience-outer-wrapper {
+/* .experience-outer-wrapper {
   width: 100%;
   background-color: #F7F7F7;
-}
+} */
 
 .experience-container {
   max-width: 900px;
@@ -228,10 +228,10 @@
 /* ==========================================================================
    4. PROJECTS
    ========================================================================== */
-.projects-outer-wrapper {
+/* .projects-outer-wrapper {
   width: 100%;
   background-color: #F7F7F7;
-}
+} */
 
 .projects-section-container {
   max-width: 900px;
@@ -294,15 +294,15 @@
 /* ==========================================================================
    5. SKILLS
    ========================================================================== */
-.skills-outer-wrapper {
+/* .skills-outer-wrapper {
   width: 100%;
   padding: 100px 0;
-}
+} */
 
 .skills-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 120px 40px;
 }
 
 .skills-card-grid {
@@ -395,10 +395,10 @@
 /* ==========================================================================
    7. CONTACT
    ========================================================================== */
-.contact-outer-wrapper {
+/* .contact-outer-wrapper {
   width: 100%;
   background-color: #F7F7F7;
-}
+} */
 
 .contact-section-container {
   max-width: 900px;
@@ -616,3 +616,4 @@
     font-size: 0.95rem;
   }
 }
+

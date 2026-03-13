@@ -1,165 +1,150 @@
-<nav class="navbar">
-  <div class="nav-content">
-    <a href="#home" class="nav-logo">AD.</a>
-    <div class="nav-links">
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
+<div class="stacking-cards">
 
-<div class="apple-experience">
-  <section id="home" class="hero-section">
-    <div class="hero-content reveal-on-load">
-      
-      <p class="greeting">Hello, I'm</p>
-      <h1 class="name-display">Amit Dethe.</h1>
-      <h2 class="role-title">Building intelligence to decode the unseen.</h2>
-      
-      <p class="hero-summary">
-        Training systems to look further. Architecting robust machine learning models that find profound meaning in the noise, transforming vast complexities into intuitive truths.
-      </p>
-
-    </div>
-  </section>
-</div>
-
-
-<div class="experience-outer-wrapper">
-  @if (portfolioData()) {
-    <div id="experience" class="experience-container reveal-on-load">
-      <p class="section-tag">EXPERIENCE</p>
-      <h2 class="section-main-title">Where I've worked.</h2>
-      
-      <div class="experience-list">
-        @for (job of portfolioData().experience; track job.role) {
-          @if (job.showElement) {
-            <div class="job-item">
-              <p class="job-dates">{{ job.dates }}</p>
-              <h3 class="job-role-title">{{ job.role }}</h3>
-              <p class="job-company-name">{{ job.company }}</p>
-              
-              <div class="bullet-container">
-                @for (bullet of job.bullets; track bullet) {
-                  <p class="job-description">{{ bullet }}</p>
-                }
-              </div>
-            </div>
-          }
-        }
-      </div>
-    </div>
-  }
-</div>
-
-
-@if (portfolioData()) {
-<div id="education" class="education-container reveal-on-load">
-  <p class="section-tag">EDUCATION</p>
-  <h2 class="section-main-title">Where I've studied.</h2>
-  
-  <div class="education-list">
-    @for (edu of portfolioData().education; track edu.degree) {
-      @if (edu.showElement) {
-        <div class="edu-item">
-          <p class="edu-dates">{{ edu.dates }}</p>
-          <h3 class="edu-degree-title">{{ edu.degree }}</h3>
-          <p class="edu-school-name">{{ edu.school }}</p>
-          
-          <p class="edu-details">
-            GPA: {{ edu.gpa }} · {{ edu.details }} 
-            @if (edu.courses) {
-              · Coursework in {{ edu.courses }}
-            }
+  <section class="stack-card" id="home">
+    <div class="apple-experience">
+      <div class="hero-section">
+        <div class="hero-content reveal-on-load">
+          <p class="greeting">Hello, I'm</p>
+          <h1 class="name-display">Amit Dethe.</h1>
+          <h2 class="role-title">Building intelligence to decode the unseen.</h2>
+          <p class="hero-summary">
+            Training systems to look further. Architecting robust machine learning models that find profound meaning in the noise, transforming vast complexities into intuitive truths.
           </p>
         </div>
-      }
-    }
-  </div>
-</div>
-}
-
-
-@if (portfolioData()) {
-<div class="projects-outer-wrapper">
-  <div id="projects" class="projects-section-container">
-    <p class="section-tag">PROJECTS</p>
-    <h2 class="section-main-title">What I've built.</h2>
-    
-    <div class="projects-stack">
-      @for (project of portfolioData().projects; track project.title) {
-        @if (project.showElement) {
-          <div class="project-item-card">
-            
-            <p class="project-tech-stack">
-              {{ project.tools.split(',').join(' · ') }}
-            </p>
-            
-            <h3 class="project-display-title">{{ project.title }}</h3>
-
-            <div class="project-bullets-container">
-              @for(bullet of project.bullets; track bullet) {
-                <p class="project-summary-text">{{ bullet }}</p>
-              }
-            </div>
-            
-          </div>
-        }
-      }
-    </div>
-  </div>
-</div>
-}
-
-<div class="skills-outer-wrapper">
-  @if (portfolioData()) {
-    <div id="skills" class="skills-container">
-      <p class="section-tag">SKILLS</p>
-      <h2 class="section-main-title">Tools I use.</h2>
-      
-      <div class="skills-card-grid">
-        @for (cat of portfolioData().skillCategories; track cat.category) {
-          @if (cat.showElement) {
-            <div class="skill-category-card">
-              <h3 class="skill-category-title">{{ cat.category }}</h3>
-              <div class="skill-pills-wrapper">
-                @for (skill of cat.items; track skill) {
-                  <span class="skill-item-pill">{{ skill }}</span>
-                }
-              </div>
-            </div>
-          }
-        }
       </div>
     </div>
+  </section>
+
+  @if (portfolioData()) {
+    <section class="stack-card" id="experience">
+      <div class="experience-outer-wrapper">
+        <div class="experience-container">
+          <p class="section-tag">EXPERIENCE</p>
+          <h2 class="section-main-title">Where I've worked.</h2>
+          <div class="experience-list">
+            @for (job of portfolioData().experience; track job.role) {
+              @if (job.showElement) {
+                <div class="job-item">
+                  <p class="job-dates">{{ job.dates }}</p>
+                  <h3 class="job-role-title">{{ job.role }}</h3>
+                  <p class="job-company-name">{{ job.company }}</p>
+                  <div class="bullet-container">
+                    @for (bullet of job.bullets; track bullet) {
+                      <p class="job-description">{{ bullet }}</p>
+                    }
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </section>
   }
+
+  @if (portfolioData()) {
+    <section class="stack-card" id="education">
+      <div class="education-outer-wrapper">
+        <div class="education-container">
+          <p class="section-tag">EDUCATION</p>
+          <h2 class="section-main-title">Where I've studied.</h2>
+          <div class="education-list">
+            @for (edu of portfolioData().education; track edu.degree) {
+              @if (edu.showElement) {
+                <div class="edu-item">
+                  <p class="edu-dates">{{ edu.dates }}</p>
+                  <h3 class="edu-degree-title">{{ edu.degree }}</h3>
+                  <p class="edu-school-name">{{ edu.school }}</p>
+                  <p class="edu-details">
+                    GPA: {{ edu.gpa }} · {{ edu.details }}
+                    @if (edu.courses) {
+                      · Coursework in {{ edu.courses }}
+                    }
+                  </p>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  @if (portfolioData()) {
+    <section class="stack-card" id="projects">
+      <div class="projects-outer-wrapper">
+        <div class="projects-section-container">
+          <p class="section-tag">PROJECTS</p>
+          <h2 class="section-main-title">What I've built.</h2>
+          <div class="projects-stack">
+            @for (project of portfolioData().projects; track project.title) {
+              @if (project.showElement) {
+                <div class="project-item-card">
+                  <p class="project-tech-stack">
+                    {{ project.tools.split(',').join(' · ') }}
+                  </p>
+                  <h3 class="project-display-title">{{ project.title }}</h3>
+                  <div class="project-bullets-container">
+                    @for(bullet of project.bullets; track bullet) {
+                      <p class="project-summary-text">{{ bullet }}</p>
+                    }
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  @if (portfolioData()) {
+    <section class="stack-card" id="skills">
+      <div class="skills-outer-wrapper">
+        <div class="skills-container">
+          <p class="section-tag">SKILLS</p>
+          <h2 class="section-main-title">Tools I use.</h2>
+          <div class="skills-card-grid">
+            @for (cat of portfolioData().skillCategories; track cat.category) {
+              @if (cat.showElement) {
+                <div class="skill-category-card">
+                  <h3 class="skill-category-title">{{ cat.category }}</h3>
+                  <div class="skill-pills-wrapper">
+                    @for (skill of cat.items; track skill) {
+                      <span class="skill-item-pill">{{ skill }}</span>
+                    }
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  @if (portfolioData()) {
+    <section class="stack-card" id="contact">
+      <div class="contact-outer-wrapper">
+        <div class="contact-section-container">
+          <p class="section-tag">CONTACT</p>
+          <h2 class="section-main-title">Let's connect.</h2>
+          <p class="contact-summary">
+            {{ portfolioData().contact.summary }}
+          </p>
+          <div class="contact-buttons-wrapper">
+            <a [href]="'mailto:' + portfolioData().contact.email" class="contact-btn btn-primary">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              {{ portfolioData().contact.email }}
+            </a>
+            <a [href]="'tel:' + portfolioData().contact.phone.replace(' ', '').replace('(', '').replace(')', '').replace('-', '')" class="contact-btn btn-secondary">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              {{ portfolioData().contact.phone }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
 </div>
-
-
-@if (portfolioData()) {
-<div class="contact-outer-wrapper">
-  <div id="contact" class="contact-section-container">
-    <p class="section-tag">CONTACT</p>
-    <h2 class="section-main-title">Let's connect.</h2>
-    
-    <p class="contact-summary">
-      {{ portfolioData().contact.summary }}
-    </p>
-
-    <div class="contact-buttons-wrapper">
-      <a [href]="'mailto:' + portfolioData().contact.email" class="contact-btn btn-primary">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        {{ portfolioData().contact.email }}
-      </a>
-
-      <a [href]="'tel:' + portfolioData().contact.phone.replace(' ', '').replace('(', '').replace(')', '').replace('-', '')" class="contact-btn btn-secondary">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-        {{ portfolioData().contact.phone }}
-      </a>
-    </div>
-  </div>
-  </div>
-}
