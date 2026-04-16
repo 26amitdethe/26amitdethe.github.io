@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-root',
@@ -31,8 +32,50 @@ export class App implements OnInit, OnDestroy {
   ngOnInit() {
     this.http.get('/assets/master.json').subscribe((data) => {
       this.portfolioData.set(data);
-      console.log('Portfolio data loaded:', data != null);
+      // console.log('Portfolio data loaded:', data != null);
     });
+    this.trackVisit();
+  }
+
+  async trackVisit() {
+    const referrer = document.referrer || 'Direct Visit';
+    const userAgent = navigator.userAgent;
+    const resolution = `${window.innerWidth}x${window.innerHeight}`;
+    let location = 'Location Unknown';
+
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const language = navigator.language;
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark' : 'Light';
+    const path = window.location.pathname;
+
+    try {
+      const response = await fetch('https://ipapi.co/json/');
+      if (response.ok) {
+        const geoData = await response.json();
+        location = `${geoData.city}, ${geoData.region}`;
+      }
+    } catch (error) {
+      console.error('Location blocked');
+    }
+
+    const messagePayload = `
+📍 ${location} (${timeZone})
+🔗 Path: ${path}
+🔙 Ref: ${referrer}
+💻 ${resolution} | ${isDarkMode} Mode
+🗣️ Lang: ${language}
+    `.trim();
+
+    fetch('https://ntfy.sh/adawg_portfolio_alert_uwm', {
+        method: 'POST',
+        body: messagePayload,
+        headers: {
+            'Title': 'New Visitor',
+            'Priority': 'default',
+            'Tags': '' 
+        }
+    }).then(() => console.log('Ping sent'))
+      .catch(err => console.error('Ping failed', err));
   }
 
   private initScrollReveal(): void {
