@@ -38,7 +38,12 @@ export class App implements OnInit, OnDestroy {
   }
 
   async trackVisit() {
-    const referrer = document.referrer || 'Direct Visit';
+    const urlParams = new URLSearchParams(window.location.search);
+    const customRef = urlParams.get('ref');
+    
+    // If the URL has ?ref=resume, it will use that. Otherwise, it checks the normal referrer.
+    const referrer = customRef ? `Resume Link (${customRef})` : (document.referrer || 'Direct Visit');
+
     const userAgent = navigator.userAgent;
     const resolution = `${window.innerWidth}x${window.innerHeight}`;
     let location = 'Location Unknown';
