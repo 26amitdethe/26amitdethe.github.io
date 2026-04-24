@@ -16,31 +16,42 @@
   </section>
 
   @if (portfolioData()) {
-  <section class="stack-card" id="experience">
-    <div class="experience-outer-wrapper">
-      <div class="experience-container">
-        <p class="section-tag">EXPERIENCE</p>
-        <h2 class="section-main-title">Where I've worked.</h2>
-        <div class="experience-list">
-          @for (job of portfolioData().experience; track job.role) {
-          @if (job.showElement) {
-          <div class="job-item">
-            <p class="job-dates">{{ job.dates }}</p>
+<section class="stack-card" id="experience">
+  <div class="experience-outer-wrapper">
+    <div class="experience-container">
+      <p class="section-tag">EXPERIENCE</p>
+      <h2 class="section-main-title">Where I've worked.</h2>
+      <div class="experience-list">
+        @for (job of portfolioData().experience; track job.role) {
+        @if (job.showElement) {
+        <div class="job-item">
+          <p class="job-dates">{{ job.dates }}</p>
+          <div class="job-title-row">
             <h3 class="job-role-title">{{ job.role }}</h3>
-            <p class="job-company-name">{{ job.company }}</p>
-            <div class="bullet-container">
-              @for (bullet of job.bullets; track bullet) {
-              <p class="job-description">{{ bullet }}</p>
+            @if (job.links) {
+            <div class="job-links">
+              @for (link of job.links; track link.label) {
+              @if (link.url) {
+              <a [href]="link.url" target="_blank" class="job-link-pill">{{ link.label }}</a>
+              }
               }
             </div>
+            }
           </div>
-          }
-          }
+          <p class="job-company-name">{{ job.company }}</p>
+          <div class="bullet-container">
+            @for (bullet of job.bullets; track bullet) {
+            <p class="job-description" [innerHTML]="bullet"></p>
+            }
+          </div>
         </div>
+        }
+        }
       </div>
     </div>
-  </section>
-  }
+  </div>
+</section>
+}
 
   @if (portfolioData()) {
   <section class="stack-card" id="education">

@@ -23,39 +23,92 @@
     {
       "category": "Languages",
       "showElement": true,
-      "items": ["Python", "R", "JavaScript", "TypeScript", "C#"]
+      "items": [
+        "Python",
+        "R",
+        "JavaScript",
+        "TypeScript",
+        "C#"
+      ]
     },
     {
       "category": "ML & Frameworks",
       "showElement": true,
-      "items": ["TensorFlow", "PyTorch", "Scikit-learn", "Spark MLlib", "Transformers", "XGBoost", "spaCy", "NLTK"]
+      "items": [
+        "TensorFlow",
+        "PyTorch",
+        "Scikit-learn",
+        "Spark MLlib",
+        "Transformers",
+        "XGBoost",
+        "spaCy",
+        "NLTK"
+      ]
     },
     {
       "category": "Data & Visualization",
       "showElement": true,
-      "items": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Plotly", "ggplot", "Tableau", "Power BI"]
+      "items": [
+        "NumPy",
+        "Pandas",
+        "Matplotlib",
+        "Seaborn",
+        "Plotly",
+        "ggplot",
+        "Tableau",
+        "Power BI"
+      ]
     },
     {
       "category": "Cloud & Big Data",
       "showElement": true,
-      "items": ["AWS SageMaker", "AWS S3", "AWS Glue", "AWS Redshift", "GCP Vertex AI", "BigQuery", "Hadoop", "Kafka"]
+      "items": [
+        "AWS SageMaker",
+        "AWS S3",
+        "AWS Glue",
+        "AWS Redshift",
+        "GCP Vertex AI",
+        "BigQuery",
+        "Hadoop",
+        "Kafka"
+      ]
     },
     {
       "category": "Databases",
       "showElement": true,
-      "items": ["MySQL", "PostgreSQL", "MongoDB", "Snowflake"]
+      "items": [
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB",
+        "Snowflake"
+      ]
     }
   ],
   "experience": [
     {
+  "showElement": true,
+  "role": "Machine Learning Researcher",
+  "company": "University of Wisconsin-Madison",
+  "dates": "Jan 2026 - May 2026",
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/26amitdethe/GyroNet" },
+    { "label": "PyPI", "url": "https://pypi.org/project/gyronet/" }
+  ],
+  "bullets": [
+    "Developed an open-source tool, GyroNet (<a href='https://github.com/26amitdethe/GyroNet' target='_blank'>GitHub</a> | <a href='https://pypi.org/project/gyronet/' target='_blank'>PyPI</a>), to automate stellar age estimation via gyrochronology, addressing the need for physics-consistent dating for both cluster and field stars.",
+    "Engineered an end-to-end pipeline featuring Gaia auto-fetch and a Bayesian ensemble of normalizing flows, utilizing a reliability mask (KDE on G_0 and parallax) and a reweighting scheme based on astrometric and photometric noise variables.",
+    "Achieved a 32% improvement in median Continuous Ranked Probability Score (CRPS) and 30.1% in median Wasserstein distance, with research findings documented in a paper preprint."
+  ]
+},
+    {
       "showElement": true,
-      "role": "Machine Learning Researcher",
-      "company": "University of Wisconsin-Madison",
-      "dates": "Jan 2026 - May 2026",
+      "role": "Statistical Research Assistant",
+      "company": "School of Medicine and Public Health, UW-Madison",
+      "dates": "Nov 2024 – May 2026",
       "bullets": [
-        "Developing an end-to-end physics-informed ML solution to accurately predict stellar ages for both cluster and field stars, integrating astronomical constraints to ensure physically consistent model outputs.",
-        "Engineering a robust ETL pipeline using PySpark to aggregate a multi-modal dataset of 8,000+ stars, cross-matching high-dimensional catalogs for rotation periods, mass, and chemical abundance.",
-        "Designing a Mixture-of-Experts ensemble to unify gyrochronology and chemical dating methods; currently integrating Physics-Informed Neural Networks with normalizing flows to enforce astronomical consistency."
+        "Collaborated with clinicians and faculty to analyze 10 years of longitudinal data (N=500+) using mixed-effects models, identified 3 key growth metrics that directly informed annual institutional policy decisions.",
+        "Integrated 5+ medical databases into a unified analytical pipeline, enabling rigorous reporting across large-scale survey datasets while maintaining HIPAA-compliant data handling.",
+        "Standardized statistical reporting frameworks for 2,000+ records across 15+ studies, ensuring data integrity for compliance and research audits."
       ]
     },
     {
@@ -99,6 +152,17 @@
         "Implemented SMOTE and feature modeling to handle data skew, followed by a Spiking Neural Network (SNN) and Transformer architecture to capture temporal transit patterns.",
         "Optimized model performance via Focal Loss to penalize majority-class bias, achieving 80% precision and a 70% F1-score, representing a 6x improvement in F1 over a Logistic Regression baseline.",
         "Reduced manual review requirements for astronomical surveys by automating the identification of planetary candidates."
+      ]
+    },
+    {
+      "showElement": true,
+      "title": "Clinical Trial Outcome Modeling using the ACTG Dataset",
+      "dates": "",
+      "tools": "R, Python, SAS, Bayesian Statistics, Mixed-Effects Models",
+      "bullets": [
+        "Analyzed 1,000+ patient records from the AIDS Clinical Trials Group (ACTG) study using R and SAS to evaluate treatment efficacy and survival outcomes in a longitudinal clinical trial setting.",
+        "Applied Cox proportional hazards and Bayesian mixed-effects models (RStan) to estimate treatment effects and 95% credible intervals.",
+        "Simulated experimental designs to optimize sample size, maintaining 0.8 statistical power and reducing projected costs by 15%."
       ]
     },
     {
